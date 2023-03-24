@@ -26,8 +26,8 @@ export default function Home() {
         <div className="mx-auto mt-10 ">
           
           <dl className="mt-16 grid gap-8 sm:mt-20 sm:grid-cols-1 md:grid-cols-2">
-            <Card title= {{text: "Classic Auto Restyling"}} pic={"/../public/car.png"}/>
-            <Card title= {{text: "Classic Canvas Co."}} pic={"/../public/ccc.png"}/>
+            <Card title= {{text: "Classic Auto Restyling"}} pic={"/static/images/car.png"}/>
+            <Card title= {{text: "Classic Canvas Co."}} pic={"/static/images/ccc.png"}/>
           </dl>
         </div>
         {/*  */}
