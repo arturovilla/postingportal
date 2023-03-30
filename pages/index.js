@@ -24,7 +24,7 @@ export default function Home() {
           </a>
         </div>
 
-        {/*  */}
+
         <div className="mx-auto mt-0 flex items-center justify-center">
           
           <dl className=" mt-16 grid gap-8 sm:mt-2 grid-cols-2">
@@ -32,7 +32,7 @@ export default function Home() {
             <Card title= {{text: "Classic Canvas Co."}} pic={"/static/images/ccc.png"}/>
           </dl>
         </div>
-        {/*  */}
+
         <div className="mx-auto mt-10 flex items-center justify-center ">
           <dl className="">
             <Radiobutton platform= {{text: "Facebook"}} name={{text: "classiccanvasco"}}/>
@@ -42,9 +42,9 @@ export default function Home() {
             <Radiobutton platform= {{text: "Youtube"}} name={{text: "classiccanvasco."}}/>
           </dl>
         </div>
-        {/*  */}
+
       </div>
-      {/*  */}
+
 
     </div>
   )
