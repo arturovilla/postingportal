@@ -3,12 +3,20 @@ import Image from 'next/image'
 
 function Card({title,pic}) {
   return (
-    <a href="#" className=" text-center max-w-xs p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{title.text}</h5>
-        <div style={{display: "flex",justifyContent: "center",}}>
-            <Image src={pic} width="100" height="20" />
+    <label className="cursor-pointer">
+        <input type="radio" className="peer sr-only"  name="business"/>
+        <div className=" w-60 max-w-xl bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700  ring-1 transition-all peer-checked:text-slate-50 peer-checked:ring-offset-1 w-50">
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center justify-between">
+              <p className="ml-2 text-lg text-slate-100 font-semibold uppercase " >{title.text}</p>
+            </div>
+            <div className="flex items-end justify-center mb-3">
+              <Image src={pic} width="100" height="20" />
+            </div>
+          </div>
         </div>
-    </a>
+      </label>
+
   )
 }
 
