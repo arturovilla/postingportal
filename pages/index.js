@@ -2,6 +2,7 @@
 import { Inter } from 'next/font/google'
 import Card from '@/components/Card'
 import Radiobutton from '@/components/Radiobutton'
+import Inputfield from '@/components/Inputfield'
 const inter = Inter({ subsets: ['latin'] })
 
 
