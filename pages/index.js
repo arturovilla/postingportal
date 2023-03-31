@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import Card from '@/components/Card'
 import Radiobutton from '@/components/Radiobutton'
 import Inputfield from '@/components/Inputfield'
+import Submit from '@/components/Submit'
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -46,6 +47,10 @@ export default function Home() {
 
         <div className="mx-auto mt-10 flex items-center justify-center ">
           <Inputfield/>
+        </div>
+
+        <div className="mx-auto mt-10 flex items-center justify-center ">
+          <Submit/>
         </div>
 
       </div>
