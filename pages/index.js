@@ -44,6 +44,10 @@ export default function Home() {
           </dl>
         </div>
 
+        <div className="mx-auto mt-10 flex items-center justify-center ">
+          <Inputfield/>
+        </div>
+
       </div>
 
 
