@@ -35,7 +35,10 @@ export default function Home() {
           </dl>
         </div>
 
-        <div className="mx-auto mt-10 flex items-center justify-center ">
+        <p className="mt-12 text-sm leading-8 text-gray-300 text-left md:text-center">
+          Select platforms to post on below:
+        </p>
+        <div className="mx-auto mt-0 flex items-center justify-center ">
           <dl className="">
             <Radiobutton platform= {{text: "Facebook"}} name={{text: "classiccanvasco"}}/>
             <Radiobutton platform= {{text: "Instagram"}} name={{text: "classiccanvas.co"}}/>
