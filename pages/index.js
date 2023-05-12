@@ -1,66 +1,18 @@
 
 import { Inter } from 'next/font/google'
-import Card from '@/components/Card'
-import Radiobutton from '@/components/Radiobutton'
-import Inputfield from '@/components/Inputfield'
-import Submit from '@/components/Submit'
-import Upload from '@/components/Upload'
+
+import Form from '@/components/Form'
 const inter = Inter({ subsets: ['latin'] })
+
 
 
 
 
 export default function Home() {
   return (
-    <div className="flex bg-gray-900 py-10">
-      
-      
-      
-      <div className="text-center mx-auto px-6 " >
-        <div>
-          <h2 className="font-bold text-white text-6xl text-left md:text-center">Posting Portal</h2>
-          <p className="mt-6 text-lg leading-8 text-gray-300 text-left md:text-center">
-            Select the company below:
-          </p>
-        </div>
+    <div className="flex justify-center flex-col items-center">
 
-
-        <div className="mx-auto mt-0 flex items-center justify-center">
-          
-          <dl className=" mt-16 grid gap-8 sm:mt-2 grid-cols-2">
-            <Card title= {{text: "Classic Auto"}} pic={"/static/images/car.png"}/>
-            <Card title= {{text: "Classic Canvas Co."}} pic={"/static/images/ccc.png"}/>
-          </dl>
-        </div>
-
-        <p className="mt-12 text-sm leading-8 text-gray-300 text-left md:text-center">
-          Select platforms to post on below:
-        </p>
-        <div className="mx-auto mt-0 flex items-center justify-center ">
-          <dl className="">
-            <Radiobutton platform= {{text: "Facebook"}} name={{text: "classiccanvasco"}}/>
-            <Radiobutton platform= {{text: "Instagram"}} name={{text: "classiccanvas.co"}}/>
-            <Radiobutton platform= {{text: "LinkedIn"}} name={{text: "classic-canvas-company"}}/>
-            <Radiobutton platform= {{text: "Twitter"}} name={{text: "classiccanvasco"}}/>
-            <Radiobutton platform= {{text: "Youtube"}} name={{text: "classiccanvasco."}}/>
-          </dl>
-        </div>
-
-        <div className="mx-auto mt-10 flex items-center justify-center ">
-          <Upload/>
-        </div>
-
-        <div className="mx-auto mt-10 flex items-center justify-center ">
-          <Inputfield/>
-        </div>
-
-        <div className="mx-auto mt-10 flex items-center justify-center ">
-          <Submit/>
-        </div>
-
-      </div>
-
-
+      <Form/>
     </div>
   )
 }
