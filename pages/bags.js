@@ -1,4 +1,4 @@
-import Formbags from "@/components/Formbags"
+import Formbags from "@/components/formbags"
 
 
 function bags() {

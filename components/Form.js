@@ -2,29 +2,19 @@
 import { useFormik } from 'formik'
 import { useRouter } from 'next/router'
 import React,{useState, useEffect} from 'react'
-import AWS from 'aws-sdk'
 
-const instagramcars3 ='instagramcars-s3';
-const REGION ='us-east-2';
 
-AWS.config.update({
-    accessKeyId: '',
-    secretAccessKey: ''
-})
 
-const instabucket = new AWS.S3({
-    params: {Bucket: instagramcars3},
-    region: REGION
-})
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 
 function Form() {
-    const [images, setImages] = useState([])
-    function onImageChange(e){
-        setImages([...e.target.files])
-        // console.log(images)
-    }
-    
-    // form logic 
+    // form logic  
     const formik = useFormik({
         initialValues: {
             facebook: "",
@@ -34,25 +24,49 @@ function Form() {
             caption: ""
         },
         //Validate form up here with yup if neccesary
-        
-        //submit form
-        onSubmit: (values) => {
-            console.log(values)
-        }
     })
 
-    const uploadFiles = (file) => {
-        const params = {
-            ACL: 'public-read',
-            Body: file,
-            Bucket: instagramcars3,
-            Key: file.name
+    const [images, setImages] = useState([])
+
+    function onImageChange(e){
+        setImages([...e.target.files])
+    }
+    
+
+    const uploadFiles = async (images) => {
+
+        const file = images[0]
+        const filename = file.name
+        const filetype = file.type
+
+        const res = await fetch(`/api/s3submit?file=${filename}&fileType=${filetype}`)
+        console.log("res:" + res)
+
+
+
+        const { url, fields } = await res.json()
+        console.log('url:' + url)
+        console.log("fields:" + fields.toString())
+
+        const formData = new FormData()
+
+        Object.entries(...fields, file).forEach(([key,value]) => {
+            formData.append(key, value.toString())
+        })
+        console.log(formData)
+
+        const upload = await fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+
+        
+
+        if (upload.ok){
+            console.log('good shit')
+        }else{
+            console.log('somethings fucked up')
         }
-        // instabucket.putObject(params).send((err) => {
-        //     if(err) console.log(err + " hey im in the put object function")
-        // })
-        console.log(params)
-        console.log(file)
     }
 
     return (
@@ -88,7 +102,7 @@ function Form() {
                     </div>
                     <div className='bg-green-300 mt-6 p-2'>
                         {/* here is the submit button*/}
-                        <button type='submit' className='bg-blue-600 text-sm text-white py-3 my-2 rounded-lg px-4' onSubmit={() => {uploadFiles(images)}}>submit this bitch</button>
+                        <button className='bg-blue-600 text-sm text-white py-3 my-2 rounded-lg px-4' onClick={() => {uploadFiles(images)}} >submit this bitch</button>
                     </div>
 
                 </div>
